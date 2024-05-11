@@ -367,10 +367,10 @@ sensor:
       id(${prefix_id}half_rotations_flow) = 0;
       return flow;
     update_interval: ${flow_update_interval_seconds}s
-    accuracy_decimals: 3
+    accuracy_decimals: 4
     state_class: measurement
     unit_of_measurement: ${volume_unit}/min
     filters:
       - or:
           - throttle: 60s
-          - delta: 0.001
+          - delta: 0.0001
