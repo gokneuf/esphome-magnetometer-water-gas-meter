@@ -349,7 +349,7 @@ sensor:
     name: ${prefix_name}Total
     lambda: return id(${prefix_id}half_rotations_total) * id(${prefix_id}volume_per_half_rotation).state;
     update_interval: 10s
-    accuracy_decimals: 4
+    accuracy_decimals: 3
     device_class: ${device_class}
     icon: ${device_icon}
     state_class: total_increasing
@@ -357,7 +357,7 @@ sensor:
     filters:
       - or:
           - throttle: 60s
-          - delta: 0.01
+          - delta: 0.001
 
   - platform: template
     id: ${prefix_id}sensor_flow
@@ -367,10 +367,10 @@ sensor:
       id(${prefix_id}half_rotations_flow) = 0;
       return flow;
     update_interval: ${flow_update_interval_seconds}s
-    accuracy_decimals: 4
+    accuracy_decimals: 3
     state_class: measurement
     unit_of_measurement: ${volume_unit}/min
     filters:
       - or:
           - throttle: 60s
-          - delta: 0.01
+          - delta: 0.001
